@@ -1,0 +1,96 @@
+[
+  {
+    "id": "ugandaemr.referenceapplication.legacyAdmin",
+    "extensions": [
+      {
+        "id": "ugandaemr.referenceapplication.legacyAdmin.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "ugandaemr.app.legacy.admin.label",
+        "url": "admin/index.htm",
+        "icon": "icon-cogs",
+        "order": 99,
+        "requiredPrivilege": "App: referenceapplication.legacyAdmin"
+      }
+    ]
+  },
+  {
+    "id": "ugandaemr.referenceapplication.backupDatabase",
+    "extensions": [
+      {
+        "id": "ugandaemr.referenceapplication.backupDatabase.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "ugandaemr.app.backupdatabase.list.label",
+        "url": "module/databasebackup/backup.form",
+        "icon": "icon-cloud-download",
+        "order": 115,
+        "requiredPrivilege": "App: ugandaemr.backup.backupDatabase"
+      }
+    ]
+  },
+  {
+    "id": "ugandaemr.referenceapplication.support",
+    "extensions": [
+      {
+        "id": "ugandaemr.referenceapplication.support.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "ugandaemr.app.support.list.label",
+        "url": "ugandaemr/support.page",
+        "icon": "icon-question-sign",
+        "order": 120
+      }
+    ]
+  },
+  {
+    "id": "ugandaemr.cohortbuilder.link",
+    "extensions": [
+      {
+        "id": "ugandaemr.cohortbuilder.homepageLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "ugandaemr.app.cohortbuilder.label",
+        "url": "cohortBuilder.list",
+        "icon": "icon-building",
+        "order": 105,
+        "requiredPrivilege": "App: ugandaemr.report.cohortBuilder"
+      }
+    ]
+  },
+  {
+    "id": "ugandaemr.findPatient",
+    "instanceOf": "coreapps.template.findPatient",
+    "description": "Basic patient search that goes to the patient dashboard",
+    "order": 2,
+    "extensions": [
+      {
+        "id": "ugandaemr.findPatientLink",
+        "extensionPointId": "org.openmrs.referenceapplication.homepageLink",
+        "type": "link",
+        "label": "coreapps.findPatient.app.label",
+        "url": "coreapps/findpatient/findPatient.page?app=ugandaemr.findPatient",
+        "icon": "icon-search",
+        "requiredPrivilege": "App: coreapps.findPatient"
+      }
+    ],
+    "config": {
+      "registrationAppLink": "registrationapp/registerPatient.page?appId=ugandaemr.registrationapp.registerPatient"
+    }
+  },{
+  "id": "ugandaemr.configs",
+  "description": "Configurations for Health Center",
+  "order": 5,
+  "extensions": [
+    {
+      "id": "coreapps.activeVisitsHomepageLink",
+      "extensionPointId": "systemAdministration.apps",
+      "type": "link",
+      "label": "Health Center Configurations",
+      "url": "admin/maintenance/settings.list?show=Ugandaemr",
+      "icon": " icon-cog",
+      "requiredPrivilege": "App: coreapps.systemAdministration"
+    }
+  ]
+}
+]
