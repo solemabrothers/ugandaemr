@@ -6,7 +6,7 @@
 	<artifactId>ugandaemr</artifactId>
 	<version>3.1.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>ugandaemr</name>
+	<name>Ugandaemr</name>
 	<description>Customizations for Uganda OpenMRS distribution</description>
 	<url>https://wiki.openmrs.org/display/docs/ugandaemr+Module+Module</url>
 
@@ -111,8 +111,10 @@
 		<uicommonsVersion>2.12.0</uicommonsVersion>
 		<uiframeworkVersion>3.17.0</uiframeworkVersion>
 		<uilibraryVersion>2.0.6</uilibraryVersion>
-		<ugandaemrfingerprintVersion>1.0.11</ugandaemrfingerprintVersion>
 		<xformsVersion>4.3.12</xformsVersion>
+		<patientqueueingVersion>1.1.0</patientqueueingVersion>
+		<ugandaemrSyncVersion>1.0.6</ugandaemrSyncVersion>
+		<ugandaemrfingerprintVersion>1.0.11</ugandaemrfingerprintVersion>
 
 		<!-- core configuration library -->
 		<ugandaemrReportsVersion>2.0.22</ugandaemrReportsVersion>
@@ -227,6 +229,19 @@
 				<groupId>org.openmrs.module</groupId>
 				<artifactId>dataexchange-api</artifactId>
 				<version>${dataexchangeVersion}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>ugandaemrfingerprint-api</artifactId>
+				<version>${ugandaemrfingerprintVersion}</version>
+				<scope>provided</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>ugandaemrfingerprint-omod</artifactId>
+				<version>${ugandaemrfingerprintVersion}</version>
 				<scope>provided</scope>
 			</dependency>
 
@@ -426,6 +441,13 @@
 				<artifactId>JUnitParams</artifactId>
 				<version>${junitParamsVersion}</version>
 				<scope>test</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>coreapps-omod</artifactId>
+				<version>${coreappsVersion}</version>
+				<scope>provided</scope>
 			</dependency>
 
 			<dependency>

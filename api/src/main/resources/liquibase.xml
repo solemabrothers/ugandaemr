@@ -430,6 +430,74 @@ VALUES
 			DELETE FROM notification_alert;
 		</sql>
 	</changeSet>
+	<changeSet id="ugandaemrpoc-05-11-2019" author="slubwama">
+		<preConditions onFail="CONTINUE">
+			<sqlCheck expectedResult="1">
+				SELECT  count(property) from global_property WHERE property='order.testSpecimenSourcesConceptUuid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Setting Specimen source concept uuid</comment>
+		<sql>
+			UPDATE global_property SET property_value = '162476AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' WHERE property='order.testSpecimenSourcesConceptUuid';
+		</sql>
+	</changeSet>
+
+	<changeSet id="ugandaemrpoc-12-02-2020-01" author="slubwama">
+		<preConditions onFail="CONTINUE">
+			<sqlCheck expectedResult="1">
+				SELECT  count(property) from global_property WHERE property='order.drugDispensingUnitsConceptUuid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Setting Specimen source concept uuid</comment>
+		<sql>
+			UPDATE global_property SET property_value = '162402AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' WHERE property='order.drugDispensingUnitsConceptUuid';
+		</sql>
+	</changeSet>
+
+	<changeSet id="ugandaemrpoc-12-02-2020-02" author="slubwama">
+		<preConditions onFail="CONTINUE">
+			<sqlCheck expectedResult="1">
+				SELECT  count(property) from global_property WHERE property='order.drugDosingUnitsConceptUuid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Setting Specimen source concept uuid</comment>
+		<sql>
+			UPDATE global_property SET property_value = '162384AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' WHERE property='order.drugDosingUnitsConceptUuid';
+		</sql>
+	</changeSet>
+
+	<changeSet id="ugandaemrpoc-06-11-2019-03" author="slubwama">
+		<preConditions onFail="CONTINUE">
+			<sqlCheck expectedResult="1">
+				SELECT  count(property) from global_property WHERE property='order.drugRoutesConceptUuid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Setting Specimen source concept uuid</comment>
+		<sql>
+			UPDATE global_property SET property_value = '162394AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' WHERE property='order.drugRoutesConceptUuid';
+		</sql>
+	</changeSet>
+
+	<changeSet id="ugandaemrpoc-06-11-2019-04" author="slubwama">
+		<preConditions onFail="CONTINUE">
+			<sqlCheck expectedResult="1">
+				SELECT  count(property) from global_property WHERE property='order.durationUnitsConceptUuid';
+			</sqlCheck>
+		</preConditions>
+		<comment>Setting Specimen source concept uuid</comment>
+		<sql>
+			UPDATE global_property SET property_value = '1732AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA' WHERE property='order.durationUnitsConceptUuid';
+		</sql>
+	</changeSet>
+
+	<changeSet id="ugandaemrpoc-14-08-2020-04" author="dbaluku">
+		<comment>Migrate data from concept id 90253 (HIV Status) to 165275 (Family Member HIV Status)
+			unknown answer 90001 to 165165 in the on the ART Summary Page Family Tracking Section from 2.x to 3.x</comment>
+		<sql>
+			UPDATE obs SET concept_id = 165275 WHERE concept_id = 90253 and obs_group_id is not null;
+			UPDATE obs SET value_coded=165165 WHERE concept_id = 165275 and value_coded=90001 and obs_group_id is not null;
+		</sql>
+	</changeSet>
 </databaseChangeLog>
 
 
