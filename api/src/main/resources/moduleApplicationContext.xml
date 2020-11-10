@@ -19,7 +19,7 @@
 
 	<!-- Add here beans related to the API context -->
 	<context:component-scan base-package="${project.parent.groupId}.${project.parent.artifactId}"/>
-	
+
 	<!-- Services accessible via Context.getService() -->
 	<bean parent="serviceContext">
 		<property name="moduleService">
@@ -31,7 +31,7 @@
 						<ref bean="transactionManager" />
 					</property>
 					<property name="target">
-						<bean class="${project.parent.groupId}.${project.parent.artifactId}.api.impl.UgandaEMRServiceImpl">
+						<bean class="org.openmrs.module.ugandaemr.api.impl.UgandaEMRServiceImpl">
 							<property name="dao">
 								<bean class="${project.parent.groupId}.${project.parent.artifactId}.api.db.hibernate.HibernateUgandaEMRDAO">
 									<property name="sessionFactory">
@@ -52,5 +52,5 @@
 		</property>
 	</bean>
 
-	
+
 </beans>

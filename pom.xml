@@ -331,6 +331,13 @@
 			</dependency>
 
 			<dependency>
+			<groupId>org.openmrs.module</groupId>
+			<artifactId>patientqueueing-api</artifactId>
+			<version>${patientqueueingVersion}</version>
+			<scope>provided</scope>
+		</dependency>
+
+			<dependency>
 				<groupId>org.openmrs.module</groupId>
 				<artifactId>metadatadeploy-api</artifactId>
 				<version>${metadatadeployVersion}</version>
