@@ -52,29 +52,5 @@
 		</property>
 	</bean>
 
-	<bean id="ugandaemrpoc.UgandaEMRPOCService"  class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-		<property name="transactionManager">
-			<ref bean="transactionManager"/>
-		</property>
-		<property name="target">
-			<bean class="org.openmrs.module.ugandaemr.api.impl.UgandaEMRServiceImpl">
-			</bean>
-		</property>
-		<property name="preInterceptors">
-			<ref bean="serviceInterceptors"/>
-		</property>
-		<property name="transactionAttributeSource">
-			<ref bean="transactionAttributeSource"/>
-		</property>
-	</bean>
-
-	<bean parent="serviceContext">
-		<property name="moduleService">
-			<list>
-				<value>org.openmrs.module.ugandaemr.api.UgandaEMRService</value>
-				<ref bean="ugandaemrpoc.UgandaEMRPOCService"/>
-			</list>
-		</property>
-	</bean>
 	
 </beans>

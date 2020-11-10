@@ -45,7 +45,7 @@ import static org.openmrs.module.ugandaemr.metadata.core.EncounterTypes.TRANSFER
 
 public class UgandaEMRServiceImpl extends BaseOpenmrsService implements UgandaEMRService {
 
-    protected final Log log = LogFactory.getLog(UgandaEMRServiceImpl.class);
+    protected final Log log = LogFactory.getLog(this.getClass());
 
     private UgandaEMRDAO dao;
 

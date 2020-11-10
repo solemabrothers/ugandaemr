@@ -34,7 +34,7 @@ public class PublicHolidayControllerTest extends MainResourceControllerTest {
 
     @Override
     public String getUuid() {
-        return "8d5b27bc-c2cc-11de-8d13-0010c6dffd0f";
+        return "8d5b27bc-c2cc-11de-8d13-0010c6dffdef";
     }
 
     @Override
