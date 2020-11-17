@@ -28,7 +28,7 @@ public class UgandaEMRLoginPageRequestMapper implements PageRequestMapper {
 			if (request.getPageName().equals("login")) {
 				// change to the custom login provided by the module
 				request.setProviderNameOverride("ugandaemr");
-				request.setPageNameOverride("ugandaemrLogin");
+				request.setPageNameOverride("ugandaEMRLogin");
 
 				log.info(request.toString());
 				return true;
