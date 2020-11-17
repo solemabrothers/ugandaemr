@@ -31,7 +31,7 @@ public class UgandaEMRLoginPageRequestMapperTest {
 
 		assertTrue(mapper.mapRequest(request));
 		assertEquals(request.getMappedProviderName(), "ugandaemr");
-		assertEquals(request.getMappedPageName(), "ugandaemrLogin");
+		assertEquals(request.getMappedPageName(), "ugandaEMRLogin");
 
 	}
 
