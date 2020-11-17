@@ -449,7 +449,12 @@
 				<version>${junitParamsVersion}</version>
 				<scope>test</scope>
 			</dependency>
-
+			<dependency>
+				<groupId>org.openmrs.module</groupId>
+				<artifactId>coreapps-api</artifactId>
+				<version>${coreappsVersion}</version>
+				<scope>provided</scope>
+			</dependency>
 			<dependency>
 				<groupId>org.openmrs.module</groupId>
 				<artifactId>coreapps-omod</artifactId>
