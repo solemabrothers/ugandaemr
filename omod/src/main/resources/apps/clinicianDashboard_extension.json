@@ -1,39 +1,39 @@
 [
   {
-    "id": "ugandaemrpoc.labQueueList.providerDashboardRightColumn",
+    "id": "ugandaemr.labQueueList.providerDashboardRightColumn",
     "extensionPointId": "providerDashboard.rightColumnFragments",
     "order": 2,
     "extensionParams": {
-      "provider": "ugandaemrpoc",
+      "provider": "ugandaemr",
       "fragment": "labQueueList",
-      "requiredPrivilege": "App: ugandaemrpoc.laboratory"
+      "requiredPrivilege": "App: ugandaemr.laboratory"
     }
   },{
-    "id": "ugandaemrpoc.triageQueueList.providerDashboardRightColumn",
+    "id": "ugandaemr.triageQueueList.providerDashboardRightColumn",
     "extensionPointId": "providerDashboard.rightColumnFragments",
     "order": 1,
     "extensionParams": {
-      "provider": "ugandaemrpoc",
+      "provider": "ugandaemr",
       "fragment": "triageQueueList",
-      "requiredPrivilege": "App: ugandaemrpoc.triage"
+      "requiredPrivilege": "App: ugandaemr.triage"
     }
   },{
-  "id": "ugandaemrpoc.clinicanQueueList.providerDashboardRightColumn",
+  "id": "ugandaemr.clinicanQueueList.providerDashboardRightColumn",
   "extensionPointId": "providerDashboard.rightColumnFragments",
   "order": 2,
   "extensionParams": {
-    "provider": "ugandaemrpoc",
+    "provider": "ugandaemr",
     "fragment": "clinicianQueueList",
     "requiredPrivilege": "App: patientqueueing.providerDashboard"
   }
 },{
-  "id": "ugandaemrpoc.pharmacyQueueList.providerDashboardRightColumn",
+  "id": "ugandaemr.pharmacyQueueList.providerDashboardRightColumn",
   "extensionPointId": "providerDashboard.rightColumnFragments",
   "order": 2,
   "extensionParams": {
-    "provider": "ugandaemrpoc",
+    "provider": "ugandaemr",
     "fragment": "pharmacyQueueList",
-    "requiredPrivilege": "App: ugandaemrpoc.pharmacy"
+    "requiredPrivilege": "App: ugandaemr.pharmacy"
   }
 }
 ]

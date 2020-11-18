@@ -15,7 +15,7 @@ import org.openmrs.module.ugandaemr.api.UgandaEMRService;
 public class TBEncounterPageSubmissionAction implements CustomFormSubmissionAction {
 
     private static final Log log = LogFactory.getLog(TBEncounterPageSubmissionAction.class);
-    UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+    UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
     @Override
     public void applyAction(FormEntrySession session) {
         Mode mode = session.getContext().getMode();
@@ -23,9 +23,9 @@ public class TBEncounterPageSubmissionAction implements CustomFormSubmissionActi
             return;
         }
 
-        ugandaEMRPOCService.processLabTestOrdersFromEncounterObs(session, true);
+        ugandaEMRService.processLabTestOrdersFromEncounterObs(session, true);
 
-        ugandaEMRPOCService.processDrugOrdersFromEncounterObs(session, true);
+        ugandaEMRService.processDrugOrdersFromEncounterObs(session, true);
 
     }
 
