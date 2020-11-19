@@ -46,7 +46,7 @@ public class ClinicianQueueListFragmentController {
     }
 
     public SimpleObject getPatientQueueList(@RequestParam(value = "searchfilter", required = false) String searchfilter, UiSessionContext uiSessionContext) {
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
         PatientQueueingService patientQueueingService = Context.getService(PatientQueueingService.class);
         ObjectMapper objectMapper = new ObjectMapper();
 
@@ -58,7 +58,7 @@ public class ClinicianQueueListFragmentController {
         } else {
             patientQueueList = patientQueueingService.getPatientQueueListBySearchParams(searchfilter, OpenmrsUtil.firstSecondOfDay(new Date()), OpenmrsUtil.getLastMomentOfDay(new Date()), uiSessionContext.getSessionLocation(), null, null);
         }
-        List<PatientQueueVisitMapper> patientQueueMappers = ugandaEMRPOCService.mapPatientQueueToMapper(patientQueueList);
+        List<PatientQueueVisitMapper> patientQueueMappers = ugandaEMRService.mapPatientQueueToMapper(patientQueueList);
         try {
             simpleObject.put("patientClinicianQueueList", objectMapper.writeValueAsString(patientQueueMappers));
         } catch (IOException e) {
