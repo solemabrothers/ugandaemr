@@ -1095,5 +1095,5 @@
 			</div>
 		</div>
 	</div>
-    <postSubmissionAction class="org.openmrs.module.ugandaemrpoc.htmlformentry.TBSummaryPageSubmissionAction"/>
+    <postSubmissionAction class="org.openmrs.module.ugandaemr.htmlformentry.TBSummaryPageSubmissionAction"/>
 </htmlform>

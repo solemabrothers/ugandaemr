@@ -1620,11 +1620,11 @@ public class UgandaEMRServiceImpl extends BaseOpenmrsService implements UgandaEM
      * @see org.openmrs.module.ugandaemr.api.UgandaEMRService#generatePatientProgramAttributeFromObservation(org.openmrs.PatientProgram, java.util.Set, java.lang.Integer, java.lang.String)
      */
     public PatientProgramAttribute generatePatientProgramAttributeFromObservation(PatientProgram patientProgram, Set<Obs> observations, Integer conceptID, String programAttributeUUID) {
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
         for (Obs obs : observations) {
             if (conceptID.equals(obs.getConcept().getConceptId())) {
                 ProgramAttributeType programAttributeType = Context.getProgramWorkflowService().getProgramAttributeTypeByUuid(programAttributeUUID);
-                return ugandaEMRPOCService.generatePatientProgramAttribute(programAttributeType, patientProgram, obs.getValueAsString(Locale.ENGLISH));
+                return ugandaEMRService.generatePatientProgramAttribute(programAttributeType, patientProgram, obs.getValueAsString(Locale.ENGLISH));
             }
         }
         return null;

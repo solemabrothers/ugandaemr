@@ -1476,7 +1476,7 @@
                 </div>
                 <div class="col-md-5"></div>
                 <div class="col-md-1 submitButton">
-                    <postSubmissionAction class="org.openmrs.module.ugandaemrpoc.htmlformentry.HIVClinicalAssessmentSubmissionAction"/>
+                    <postSubmissionAction class="org.openmrs.module.ugandaemr.htmlformentry.HIVClinicalAssessmentSubmissionAction"/>
                     <submit class="confirm" submitLabel="Save"/>
                 </div>
             </div>
@@ -2665,7 +2665,7 @@
                         <div class="submission-section">
                             <submit submitStyle="customSubmit" class="confirm" submitLabel="SAVE"/>
                             <postSubmissionAction
-                                    class="org.openmrs.module.ugandaemrpoc.htmlformentry.HIVClinicalAssessmentSubmissionAction"/>
+                                    class="org.openmrs.module.ugandaemr.htmlformentry.HIVClinicalAssessmentSubmissionAction"/>
                         </div>
                     </div>
 
@@ -2702,7 +2702,7 @@
                             <div class="tab-content">
 
                                 <div class="tab-pane fade show active" id="patient-vitals" >
-                                    <uiInclude provider="ugandaemrpoc" fragment="vitals"/>
+                                    <uiInclude provider="ugandaemr" fragment="vitals"/>
                                 </div>
                                 <div class="tab-pane fade" id="nav-family-planning" role="tabpanel" >
 
@@ -3160,7 +3160,7 @@
                          <div class="card-body">
                             <div class="tab-content" id="investigation-report-tab-tabContent">
                                 <div class="tab-pane fade show active" id="investigation-report-list">
-                                    <uiInclude provider="ugandaemrpoc" fragment="displayResultListOnEncounter"/>
+                                    <uiInclude provider="ugandaemr" fragment="displayResultListOnEncounter"/>
                                 </div>
                                 <div class="tab-pane fade" id="investigation-report-form">
                                     <div class="row">

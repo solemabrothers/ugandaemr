@@ -432,7 +432,7 @@
                             <label>Refer To Next Location</label>
                         </div>
                         <div class="card-body">
-                            <uiInclude provider="ugandaemrpoc" fragment="referToNextLocation"/>
+                            <uiInclude provider="ugandaemr" fragment="referToNextLocation"/>
                         </div>
                     </div>
                 </ifMode>
@@ -440,7 +440,7 @@
                     <submit class="confirm" submitLabel="SAVE"/>
                     <ifMode mode="ENTER">
                         <postSubmissionAction
-                                class="org.openmrs.module.ugandaemrpoc.htmlformentry.TriageFormSubmissionAction"/>
+                                class="org.openmrs.module.ugandaemr.htmlformentry.TriageFormSubmissionAction"/>
                     </ifMode>
                 </div>
             </div>

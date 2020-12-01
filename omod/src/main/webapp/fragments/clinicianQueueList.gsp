@@ -269,5 +269,5 @@
         </div>
     </div>
 </div>
-${ui.includeFragment("ugandaemrpoc", "addPatientToAnotherQueue")}
+${ui.includeFragment("ugandaemr", "addPatientToAnotherQueue")}
 <% } %>

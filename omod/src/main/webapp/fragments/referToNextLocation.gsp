@@ -24,7 +24,7 @@
         });
     });
     function sendPatientToNextLocation(locationTo, providerTo, patientStatus, visitComment, patientId) {
-        jq.post('${ ui.actionLink("ugandaemrpoc","referToNextLocation","post") }', {
+        jq.post('${ ui.actionLink("ugandaemr","referToNextLocation","post") }', {
             patientId: patientId,
             locationId: locationTo,
             providerId: providerTo,

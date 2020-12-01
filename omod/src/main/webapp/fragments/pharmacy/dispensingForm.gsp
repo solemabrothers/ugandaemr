@@ -65,7 +65,7 @@
         var dataString = editPrescriptionForm.serialize();
         jq.ajax({
             type: "POST",
-            url: '${ui.actionLink("ugandaemrpoc", "pharmacyQueueList", "dispense")}',
+            url: '${ui.actionLink("ugandaemr", "pharmacyQueueList", "dispense")}',
             data: dataString,
             dataType: "json",
             success: function (data) {

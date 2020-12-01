@@ -248,7 +248,7 @@ button, input {
         </div>
     </div>
 </div>
-${ui.includeFragment("ugandaemrpoc", "pharmacy/dispensingForm",[healthCenterName:healthCenterName])}
+${ui.includeFragment("ugandaemr", "pharmacy/dispensingForm",[healthCenterName:healthCenterName])}
 <% } %>
 
 

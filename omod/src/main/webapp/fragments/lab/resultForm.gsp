@@ -41,7 +41,7 @@
     }
 
     function getEditResultTempLate(testId) {
-        jq.getJSON('${ui.actionLink("ugandaemrpoc", "labQueueList", "getResultTemplate")}',
+        jq.getJSON('${ui.actionLink("ugandaemr", "labQueueList", "getResultTemplate")}',
             {"testId": testId}
         ).success(function (editResultsParameterOptions) {
             editResultsParameterOpts.editResultsParameterOptions.removeAll();
@@ -63,7 +63,7 @@
         var dataString = editResultsForm.serialize();
         jq.ajax({
             type: "POST",
-            url: '${ui.actionLink("ugandaemrpoc", "labQueueList", "saveResult")}',
+            url: '${ui.actionLink("ugandaemr", "labQueueList", "saveResult")}',
             data: dataString,
             dataType: "json",
             success: function (data) {

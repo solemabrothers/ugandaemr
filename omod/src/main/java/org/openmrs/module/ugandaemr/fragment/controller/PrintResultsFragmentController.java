@@ -40,10 +40,10 @@ public class PrintResultsFragmentController {
 	public SimpleObject getResults(@RequestParam(value = "testId") Integer testId, UiUtils ui) throws IOException {
 		if (testId != null) {
 			Order labTest = Context.getOrderService().getOrder(testId);
-			UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+			UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
 
 			ObjectMapper objectMapper = new ObjectMapper();
-			Set<TestResultModel> trms = ugandaEMRPOCService.renderTests(labTest);
+			Set<TestResultModel> trms = ugandaEMRService.renderTests(labTest);
 
 			List<SimpleObject> results = SimpleObject.fromCollection(trms, ui, "investigation", "set", "test", "value",
 			    "hiNormal", "lowNormal", "lowAbsolute", "hiAbsolute", "hiCritical", "lowCritical", "unit", "level",

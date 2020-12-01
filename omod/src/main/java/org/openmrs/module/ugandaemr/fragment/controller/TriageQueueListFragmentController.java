@@ -55,7 +55,7 @@ public class TriageQueueListFragmentController {
      * @throws ParseException
      */
     public SimpleObject getPatientQueueList(@RequestParam(value = "triageSearchFilter", required = false) String searchFilter, UiSessionContext uiSessionContext) throws IOException, ParseException {
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
         PatientQueueingService patientQueueingService = Context.getService(PatientQueueingService.class);
         ObjectMapper objectMapper = new ObjectMapper();
         SimpleObject simpleObject = new SimpleObject();
@@ -65,7 +65,7 @@ public class TriageQueueListFragmentController {
         } else {
             patientQueueList = patientQueueingService.getPatientQueueListBySearchParams(null, OpenmrsUtil.firstSecondOfDay(new Date()), OpenmrsUtil.getLastMomentOfDay(new Date()), uiSessionContext.getSessionLocation(), null, null);
         }
-        simpleObject.put("patientTriageQueueList", objectMapper.writeValueAsString(ugandaEMRPOCService.mapPatientQueueToMapper(patientQueueList)));
+        simpleObject.put("patientTriageQueueList", objectMapper.writeValueAsString(ugandaEMRService.mapPatientQueueToMapper(patientQueueList)));
         return simpleObject;
     }
 

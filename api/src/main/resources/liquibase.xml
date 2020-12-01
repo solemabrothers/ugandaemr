@@ -430,7 +430,7 @@ VALUES
 			DELETE FROM notification_alert;
 		</sql>
 	</changeSet>
-	<changeSet id="ugandaemrpoc-05-11-2019" author="slubwama">
+	<changeSet id="ugandaemr-05-11-2019" author="slubwama">
 		<preConditions onFail="CONTINUE">
 			<sqlCheck expectedResult="1">
 				SELECT  count(property) from global_property WHERE property='order.testSpecimenSourcesConceptUuid';
@@ -442,7 +442,7 @@ VALUES
 		</sql>
 	</changeSet>
 
-	<changeSet id="ugandaemrpoc-12-02-2020-01" author="slubwama">
+	<changeSet id="ugandaemr-12-02-2020-01" author="slubwama">
 		<preConditions onFail="CONTINUE">
 			<sqlCheck expectedResult="1">
 				SELECT  count(property) from global_property WHERE property='order.drugDispensingUnitsConceptUuid';
@@ -454,7 +454,7 @@ VALUES
 		</sql>
 	</changeSet>
 
-	<changeSet id="ugandaemrpoc-12-02-2020-02" author="slubwama">
+	<changeSet id="ugandaemr-12-02-2020-02" author="slubwama">
 		<preConditions onFail="CONTINUE">
 			<sqlCheck expectedResult="1">
 				SELECT  count(property) from global_property WHERE property='order.drugDosingUnitsConceptUuid';
@@ -466,7 +466,7 @@ VALUES
 		</sql>
 	</changeSet>
 
-	<changeSet id="ugandaemrpoc-06-11-2019-03" author="slubwama">
+	<changeSet id="ugandaemr-06-11-2019-03" author="slubwama">
 		<preConditions onFail="CONTINUE">
 			<sqlCheck expectedResult="1">
 				SELECT  count(property) from global_property WHERE property='order.drugRoutesConceptUuid';
@@ -478,7 +478,7 @@ VALUES
 		</sql>
 	</changeSet>
 
-	<changeSet id="ugandaemrpoc-06-11-2019-04" author="slubwama">
+	<changeSet id="ugandaemr-06-11-2019-04" author="slubwama">
 		<preConditions onFail="CONTINUE">
 			<sqlCheck expectedResult="1">
 				SELECT  count(property) from global_property WHERE property='order.durationUnitsConceptUuid';
@@ -490,7 +490,7 @@ VALUES
 		</sql>
 	</changeSet>
 
-	<changeSet id="ugandaemrpoc-14-08-2020-04" author="dbaluku">
+	<changeSet id="ugandaemr-14-08-2020-04" author="dbaluku">
 		<comment>Migrate data from concept id 90253 (HIV Status) to 165275 (Family Member HIV Status)
 			unknown answer 90001 to 165165 in the on the ART Summary Page Family Tracking Section from 2.x to 3.x</comment>
 		<sql>

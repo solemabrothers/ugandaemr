@@ -47,7 +47,7 @@ public class ReferToNextLocationFragmentController {
 
         PatientQueue patientQueue = new PatientQueue();
         PatientQueueingService patientQueueingService = Context.getService(PatientQueueingService.class);
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
         ObjectMapper objectMapper = new ObjectMapper();
         SimpleObject simpleObject = new SimpleObject();
         Location currentLocation = new Location();
@@ -68,7 +68,7 @@ public class ReferToNextLocationFragmentController {
             patientQueue.setComment(visitComment);
         }
 
-        PatientQueue previousQueue = ugandaEMRPOCService.completePreviousQueue(patient, currentLocation, PatientQueue.Status.PENDING);
+        PatientQueue previousQueue = ugandaEMRService.completePreviousQueue(patient, currentLocation, PatientQueue.Status.PENDING);
 
         patientQueue.setLocationFrom(currentLocation);
         patientQueue.setPatient(patient);

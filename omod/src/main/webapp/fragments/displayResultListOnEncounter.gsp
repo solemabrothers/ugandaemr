@@ -4,7 +4,7 @@
     });
 
     function getResults() {
-        jq.get('${ ui.actionLink("ugandaemrpoc","displayResultListOnEncounter","getOrderWithResultForEncounter") }', {
+        jq.get('${ ui.actionLink("ugandaemr","displayResultListOnEncounter","getOrderWithResultForEncounter") }', {
             encounterId: ${encounterId}
         }, function (response) {
             if (response.trim()!=="{}") {
@@ -66,7 +66,7 @@
     }
 
     function printresult(testId, patientId) {
-        jq.get('${ ui.actionLink("ugandaemrpoc","printResults","getResults") }', {
+        jq.get('${ ui.actionLink("ugandaemr","printResults","getResults") }', {
             patientId: patientId,
             testId: testId
         }, function (response) {

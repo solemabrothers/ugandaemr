@@ -141,7 +141,7 @@ public class LabQueueListFragmentController {
      * @throws IOException
      */
     public SimpleObject generateSampleID(@RequestParam(value = "orderId", required = false) String orderNumber) throws ParseException, IOException {
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
         ObjectMapper objectMapper = new ObjectMapper();
         Order order = Context.getOrderService().getOrderByOrderNumber(orderNumber);
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -152,7 +152,7 @@ public class LabQueueListFragmentController {
         do {
             ++id;
             defaultSampleId = date + "-" + letter + "-" + id;
-        } while (ugandaEMRPOCService.isSampleIdExisting(defaultSampleId, orderNumber));
+        } while (ugandaEMRService.isSampleIdExisting(defaultSampleId, orderNumber));
 
         return SimpleObject.create("defaultSampleId", objectMapper.writeValueAsString(defaultSampleId));
     }
@@ -222,7 +222,7 @@ public class LabQueueListFragmentController {
         String resultDisplay = "";
         OrderService orderService = Context.getOrderService();
         EncounterService encounterService = Context.getEncounterService();
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
 
         Order test = orderService.getOrder(resultWrapper.getTestId());
 
@@ -236,7 +236,7 @@ public class LabQueueListFragmentController {
                 String[] parentChildConceptIds = StringUtils.split(resultModel.getConceptName(), ".");
                 Concept testGroupConcept = Context.getConceptService().getConcept(parentChildConceptIds[0]);
                 Concept testConcept = Context.getConceptService().getConcept(parentChildConceptIds[1]);
-                ugandaEMRPOCService.addLaboratoryTestObservation(encounter, testConcept, testGroupConcept, result, test);
+                ugandaEMRService.addLaboratoryTestObservation(encounter, testConcept, testGroupConcept, result, test);
                 if (StringUtils.isNumeric(result)) {
                     resultDisplay += testConcept.getName().getName() + "\t" + Context.getConceptService().getConcept(result).getName().getName() + "\n";
                 } else {
@@ -244,7 +244,7 @@ public class LabQueueListFragmentController {
                 }
             } else {
                 Concept concept = Context.getConceptService().getConcept(resultModel.getConceptName());
-                ugandaEMRPOCService.addLaboratoryTestObservation(encounter, concept, null, result, test);
+                ugandaEMRService.addLaboratoryTestObservation(encounter, concept, null, result, test);
                 resultDisplay += concept.getName().getName() + "\t" + result + "\n";
             }
         }
@@ -264,20 +264,20 @@ public class LabQueueListFragmentController {
         PatientQueue patientQueue = new PatientQueue();
 
         PatientQueueingService patientQueueingService = Context.getService(PatientQueueingService.class);
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
-        Provider provider = ugandaEMRPOCService.getProviderFromEncounter(encounter);
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
+        Provider provider = ugandaEMRService.getProviderFromEncounter(encounter);
 
         SimpleObject simpleObject = new SimpleObject();
         SimpleObject orders = null;
         try {
-            simpleObject = ugandaEMRPOCService.getProcessedOrders(PROCESSED_ORDER_WITHOUT_RESULT_QUERY.concat(" AND patient_id=" + encounter.getPatient().getPatientId()), encounter.getDateCreated(), false);
+            simpleObject = ugandaEMRService.getProcessedOrders(PROCESSED_ORDER_WITHOUT_RESULT_QUERY.concat(" AND patient_id=" + encounter.getPatient().getPatientId()), encounter.getDateCreated(), false);
             orders = (SimpleObject) simpleObject.get("ordersList");
         } catch (ParseException | IOException e) {
             log.error(e);
         }
 
         if (orders == null) {
-            ugandaEMRPOCService.completePreviousQueue(encounter.getPatient(), encounter.getLocation(), PatientQueue.Status.PENDING);
+            ugandaEMRService.completePreviousQueue(encounter.getPatient(), encounter.getLocation(), PatientQueue.Status.PENDING);
         }
 
         List<PatientQueue> patientQueueList = patientQueueingService.getPatientQueueList(null, OpenmrsUtil.firstSecondOfDay(new Date()), OpenmrsUtil.getLastMomentOfDay(new Date()), null, null, encounter.getPatient(),null);
@@ -290,7 +290,7 @@ public class LabQueueListFragmentController {
             }
         }
 
-        boolean queueExists = ugandaEMRPOCService.patientQueueExists(encounter, encounter.getLocation(), locationFrom, PatientQueue.Status.PENDING);
+        boolean queueExists = ugandaEMRService.patientQueueExists(encounter, encounter.getLocation(), locationFrom, PatientQueue.Status.PENDING);
 
         if (!queueExists) {
             if (fromLabQueue.isEmpty()) {

@@ -89,7 +89,7 @@ body {
     var handlePatientRowSelection = new handlePatientRowSelection();
     var addPatientToQueueLink = "<a  data-toggle=\"modal\" data-target=\"#add_patient_to_queue_dialog\" data-patientid=\"patientIdPlaceHolder\" data-patientnames=\"patientNamsePlaceHolder\"><i style=\"font-size: 25px;\" data-target=\"#add_patient_to_queue_dialog\" class=\"icon-share\" title=\"Check In\"></i></a>";
     var patientDashboardURL = "<i style=\"font-size: 25px;\" class=\"icon-file-alt\" title=\"Goto Patient Dashboard\" onclick=\" location.href = '/"+OPENMRS_CONTEXT_PATH+"/coreapps/clinicianfacing/patient.page?patientId=patientIdPlaceHolder'\"></i>";
-    var editPatientLink = "<i style=\"font-size: 25px;\" class=\"icon-edit\" title=\"Edit Demographics\" onclick=\"location.href = '/"+OPENMRS_CONTEXT_PATH+"/registrationapp/registrationSummary.page?patientId=patientIdPlaceHolder&sectionId=demographics&appId=aijar.registrationapp.registerPatient&returnUrl=/"+OPENMRS_CONTEXT_PATH+"/ugandaemrpoc/findpatient/findPatient.page?app=ugandaemrpoc.findPatient'\"></i>";
+    var editPatientLink = "<i style=\"font-size: 25px;\" class=\"icon-edit\" title=\"Edit Demographics\" onclick=\"location.href = '/"+OPENMRS_CONTEXT_PATH+"/registrationapp/registrationSummary.page?patientId=patientIdPlaceHolder&sectionId=demographics&appId=aijar.registrationapp.registerPatient&returnUrl=/"+OPENMRS_CONTEXT_PATH+"/ugandaemr/findpatient/findPatient.page?app=ugandaemr.findPatient'\"></i>";
     var patientSearchWidget = null;
     jq(function () {
         var widgetConfig = {
@@ -192,7 +192,7 @@ body {
         });
 
         jq("#checkin").click(function () {
-            jq.get('${ ui.actionLink("ugandaemrpoc","checkIn","post") }', {
+            jq.get('${ ui.actionLink("ugandaemr","checkIn","post") }', {
                 patientId: jq("#patient_id").val().trim().toLowerCase(),
                 locationId: jq("#location_id").val().trim().toLowerCase(),
                 locationFromId: jq("#location_from_id").val().trim().toLowerCase(),
@@ -261,7 +261,7 @@ body {
     </div>
 </div>
 
-${ui.includeFragment("ugandaemrpoc", "checkIn")}
+${ui.includeFragment("ugandaemr", "checkIn")}
 
 
 <div id="patient-search-results"></div>

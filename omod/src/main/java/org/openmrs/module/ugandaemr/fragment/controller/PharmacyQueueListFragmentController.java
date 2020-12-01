@@ -68,8 +68,8 @@ public class PharmacyQueueListFragmentController {
     }
 
     public SimpleObject dispense(@BindParams("wrap") DispensingModelWrapper resultWrapper, UiSessionContext sessionContext) throws Exception {
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
-        return ugandaEMRPOCService.dispenseMedication(resultWrapper, sessionContext.getCurrentProvider(), sessionContext.getSessionLocation());
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
+        return ugandaEMRService.dispenseMedication(resultWrapper, sessionContext.getCurrentProvider(), sessionContext.getSessionLocation());
     }
 
 

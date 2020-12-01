@@ -362,7 +362,7 @@
         });
     }
 </script>
-${ui.includeFragment("ugandaemrpoc", "lab/displayResultList")}
+${ui.includeFragment("ugandaemr", "lab/displayResultList")}
 
 <div class="card">
     <div class="card-header">
@@ -455,10 +455,10 @@ ${ui.includeFragment("ugandaemrpoc", "lab/displayResultList")}
         </div>
     </div>
 </div>
-${ui.includeFragment ( "ugandaemrpoc", "lab/resultForm" )}
-${ui.includeFragment ( "ugandaemrpoc" , "printResults" )}
+${ui.includeFragment ( "ugandaemr", "lab/resultForm" )}
+${ui.includeFragment ( "ugandaemr" , "printResults" )}
 </div>
-${ui.includeFragment ( "ugandaemrpoc", "lab/scheduleTestDialogue" )}
+${ui.includeFragment ( "ugandaemr", "lab/scheduleTestDialogue" )}
 <% } %>
 
 

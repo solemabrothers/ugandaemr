@@ -14,7 +14,7 @@ public class UgandaEMRConstants {
     /**
      * Global property names
      */
-    public static final String MODULE_PRIVILEGE = "UgandaEMRPOC Privilege";
+    public static final String MODULE_PRIVILEGE = "UgandaEMR Privilege";
     public static final String GP_HEALTH_CENTER_NAME = MODULE_ID + ".healthCenterName";
     public static final String GP_HEALTH_CENTER_NAME_VALUE = "Health Center Name";
     public static final String GP_HEALTH_CENTER_NAME_DEFAULT_ALERT_MESSAGE="The Health Center Name is not set please go to admin then Settings then Ugandaemr and set it";
