@@ -163,7 +163,7 @@ hr.printhr {
 <div id="printSection" class="print-only">
     <center>
         <div style="width: 30%">
-            <div><img width="100px" src="${ui.resourceLink("aijar", "images/moh_logo_large.png")}"/></div>
+            <div><img width="100px" src="${ui.resourceLink("ugandaemr", "images/moh_logo_large.png")}"/></div>
 
             <div><h2>${healthCenterName}</h2></div>
             <hr style="border: 1px solid red;"/>

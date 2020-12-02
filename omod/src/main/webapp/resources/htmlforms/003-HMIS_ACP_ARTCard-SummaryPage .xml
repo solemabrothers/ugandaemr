@@ -2080,7 +2080,7 @@
                         </div>
                     </div>
                 </div>
-        <postSubmissionAction class="org.openmrs.module.aijar.htmlformentry.DSDSProgramSubmissionAction"/>
+        <postSubmissionAction class="org.openmrs.module.ugandaemr.htmlformentry.DSDSProgramSubmissionAction"/>
             </div>
         </div>
     </div>

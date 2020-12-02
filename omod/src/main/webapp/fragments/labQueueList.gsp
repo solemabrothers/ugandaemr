@@ -2,7 +2,7 @@
 <%
         ui.includeCss("coreapps", "patientsearch/patientSearchWidget.css")
         ui.includeJavascript("patientqueueing", "patientqueue.js")
-        ui.includeJavascript("aijar", "js/aijar.js")
+        ui.includeJavascript("ugandaemr", "js/ugandaemr.js")
 %>
 <style>
 .div-table {

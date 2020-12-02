@@ -455,7 +455,7 @@ form input {
                 </table>
             </div>
             <footer style="margin-top: 50px">
-                <div style="text-align: left;font-size: 10px"><img width="40px" src="${ui.resourceLink("aijar", "images/moh_logo_large.png")}"/><span>UgandaEMR. Powered By METS Programme (www.mets.or.ug)</span></div>
+                <div style="text-align: left;font-size: 10px"><img width="40px" src="${ui.resourceLink("ugandaemr", "images/moh_logo_large.png")}"/><span>UgandaEMR. Powered By METS Programme (www.mets.or.ug)</span></div>
             </footer>
         </div>
     </center>

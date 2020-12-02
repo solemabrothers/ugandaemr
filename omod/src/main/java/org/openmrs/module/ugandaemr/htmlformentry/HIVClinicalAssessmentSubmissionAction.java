@@ -265,7 +265,7 @@ public class HIVClinicalAssessmentSubmissionAction implements CustomFormSubmissi
 
     private Encounter createTransferOutEncounter(FormEntrySession formEntrySession) {
         EncounterService encounterService = Context.getEncounterService();
-        UgandaEMRService aijarService = Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaemrService = Context.getService(UgandaEMRService.class);
         Encounter encounter = null;
 
         if (getObsByConceptFromSet(formEntrySession.getEncounter().getAllObs(), 90306) != null) {
@@ -277,7 +277,7 @@ public class HIVClinicalAssessmentSubmissionAction implements CustomFormSubmissi
             encounter.setEncounterDatetime(formEntrySession.getEncounter().getEncounterDatetime());
             encounter.setForm(Context.getFormService().getFormByUuid("45d9db68-e4b5-11e7-80c1-9a214cf093ae"));
 
-            Obs transferOutToObs = aijarService.generateObsFromObs(formEntrySession.getEncounter().getAllObs(), 90211, 90211, encounter);
+            Obs transferOutToObs = ugandaemrService.generateObsFromObs(formEntrySession.getEncounter().getAllObs(), 90211, 90211, encounter);
             encounter.addObs(transferOutToObs);
 
             encounterService.saveEncounter(encounter);

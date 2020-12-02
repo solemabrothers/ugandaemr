@@ -1346,7 +1346,7 @@
     </script>
     <restrictByRole exclude="Organizational: System Administrator">
         <div class="hidden">
-            <uiInclude provider="aijar" fragment="patientStability"/>
+            <uiInclude provider="ugandaemr" fragment="patientStability"/>
         </div>
     </restrictByRole>
     <restrictByRole include="Organizational: System Administrator">
