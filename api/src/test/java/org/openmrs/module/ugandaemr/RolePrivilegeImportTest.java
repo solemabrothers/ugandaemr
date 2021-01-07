@@ -17,8 +17,8 @@ public class RolePrivilegeImportTest extends BaseModuleContextSensitiveTest {
         UserService userService= Context.getUserService();
         DataImporter dataImporter = Context.getRegisteredComponent("dataImporter", DataImporter.class);
         dataImporter.importData(ROLE_PRIVILLEGE_DATASET_XML);
-        Assert.assertNotNull(userService.getPrivilege("App: ugandaemr.findPatient"));
+        Assert.assertNotNull(userService.getPrivilege("App: ugandaemrpoc.findPatient"));
         Assert.assertNotNull(userService.getRole("Data Clerk"));
-        Assert.assertTrue(userService.getRole("Data Clerk").getPrivileges().contains(userService.getPrivilege("App: ugandaemr.findPatient")));
+        Assert.assertTrue(userService.getRole("Data Clerk").getPrivileges().contains(userService.getPrivilege("App: ugandaemrpoc.findPatient")));
     }
 }
