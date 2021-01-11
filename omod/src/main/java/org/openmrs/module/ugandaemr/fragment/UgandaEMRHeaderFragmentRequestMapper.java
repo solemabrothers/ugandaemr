@@ -29,7 +29,7 @@ public class UgandaEMRHeaderFragmentRequestMapper implements FragmentRequestMapp
 			if (request.getFragmentId().equals("header")) {
 				// change to the custom login provided by the module
 				request.setProviderNameOverride("ugandaemr");
-				request.setFragmentIdOverride("ugandaemrHeader");
+				request.setFragmentIdOverride("ugandaEMRHeader");
 
 				log.info(request.toString());
 				return true;
