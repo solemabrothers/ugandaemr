@@ -12,7 +12,7 @@
           "label": "ugandaemr.form.section.triage.label",
           "url": "patientqueueing/providerDashboard.page?locationId=ff01eaab-561e-40c6-bf24-539206b521ce",
           "icon": "fas fa-user-md",
-          "requiredPrivilege": "App: ugandaemr.triage"
+          "requiredPrivilege": "App: ugandaemrpoc.triage"
         }
       ]
     },{
@@ -27,7 +27,7 @@
         "label": "ugandaemr.laboratory.outpatient.label",
         "url": "patientqueueing/providerDashboard.page?locationId=11d5d2b8-0fdd-42e0-9f53-257c760bb9a3",
         "icon": "fas fa-diagnoses",
-        "requiredPrivilege": "App: ugandaemr.outpatient"
+        "requiredPrivilege": "App: ugandaemrpoc.outpatient"
       }
     ]
   },{
@@ -42,7 +42,7 @@
         "label": "ugandaemr.laboratory.mch.label",
         "url": "patientqueueing/providerDashboard.page?locationId=e9bc61b5-69ff-414b-9cf0-0c22d6dfca2b",
         "icon": "fas fa-user-friends",
-        "requiredPrivilege": "App: ugandaemr.mchclinic"
+        "requiredPrivilege": "App: ugandaemrpoc.mchclinic"
       }
     ]
   },
@@ -58,7 +58,7 @@
           "label": "ugandaemr.counseling.center.label",
           "url": "patientqueueing/providerDashboard.page?locationId=7c231e1a-1db5-11ea-978f-2e728ce88125",
           "icon": "fas fa-user-friends",
-          "requiredPrivilege": "App: ugandaemr.counselingCenter"
+          "requiredPrivilege": "App: ugandaemrpoc.counselingCenter"
         }
       ]
     }
@@ -75,7 +75,7 @@
         "label": "ugandaemr.laboratory.art.label",
         "url": "patientqueueing/providerDashboard.page?locationId=86863db4-6101-4ecf-9a86-5e716d6504e4",
         "icon": "fas fa-ribbon",
-        "requiredPrivilege": "App: ugandaemr.artclinic"
+        "requiredPrivilege": "App: ugandaemrpoc.artclinic"
       }
     ]
   },{
@@ -90,7 +90,7 @@
         "label": "ugandaemr.tb.outpatient.label",
         "url": "patientqueueing/providerDashboard.page?locationId=8ab22b55-9a17-4121-bf08-6134a9a2439f",
         "icon": "fas fa-tenge",
-        "requiredPrivilege": "App: ugandaemr.tbclinic"
+        "requiredPrivilege": "App: ugandaemrpoc.tbclinic"
       }
     ]
   },{
@@ -105,7 +105,7 @@
         "label": "ugandaemr.laboratory.app.label",
         "url": "patientqueueing/providerDashboard.page?locationId=ba158c33-dc43-4306-9a4a-b4075751d36c",
         "icon": "fas fa-vials",
-        "requiredPrivilege": "App: ugandaemr.laboratory"
+        "requiredPrivilege": "App: ugandaemrpoc.laboratory"
       }
     ]
   },{
@@ -120,7 +120,7 @@
         "label": "ugandaemr.dispensary.app.label",
         "url": "patientqueueing/providerDashboard.page?locationId=3ec8ff90-3ec1-408e-bf8c-22e4553d6e17",
         "icon": "fas fa-pills",
-        "requiredPrivilege": "App: ugandaemr.pharmacy"
+        "requiredPrivilege": "App: ugandaemrpoc.pharmacy"
       }
     ]
   },{
@@ -136,7 +136,7 @@
         "label": "coreapps.findPatient.app.label",
         "url": "ugandaemr/findpatient/findPatient.page?app=ugandaemr.findPatient",
         "icon": "icon-search",
-        "requiredPrivilege": "App: ugandaemr.findPatient"
+        "requiredPrivilege": "App: ugandaemrpoc.findPatient"
       }
     ],
     "config": {
