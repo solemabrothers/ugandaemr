@@ -22,6 +22,6 @@ public class UgandaEMRHeaderFragmentRequestMapperTest {
 
 		assertTrue(mapper.mapRequest(request));
 		assertEquals(request.getMappedProviderName(), "ugandaemr");
-		assertEquals(request.getMappedFragmentId(), "ugandaemrHeader");
+		assertEquals(request.getMappedFragmentId(), "ugandaEMRHeader");
 	}
 }
