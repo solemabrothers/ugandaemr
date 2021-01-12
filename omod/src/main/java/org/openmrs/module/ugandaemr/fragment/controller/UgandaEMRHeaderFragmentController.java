@@ -27,7 +27,7 @@ import java.util.Map;
 /**
  *
  */
-public class UgandaemrHeaderFragmentController {
+public class UgandaEMRHeaderFragmentController {
 
 	// RA-592: don't use PrivilegeConstants.VIEW_LOCATIONS
 	private static final String GET_LOCATIONS = "Get Locations";
