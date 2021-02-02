@@ -20,13 +20,13 @@ public class DispensingFormSubmissionAction implements CustomFormSubmissionActio
                 return;
             } else {
                 PatientQueueingService patientQueueingService = Context.getService(PatientQueueingService.class);
-                UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
+                UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
                 PatientQueue patientQueue = patientQueueingService.getIncompletePatientQueue(formEntrySession.getPatient(), formEntrySession.getEncounter().getLocation());
                 if (patientQueue != null) {
                     patientQueue.setEncounter(formEntrySession.getEncounter());
                     patientQueueingService.savePatientQue(patientQueue);
                     patientQueueingService.completePatientQueue(patientQueue);
-                    ugandaEMRService.completePatientActiveVisit(patientQueue.getPatient());
+                    ugandaEMRPOCService.completePatientActiveVisit(patientQueue.getPatient());
                 }
             }
         } else {
