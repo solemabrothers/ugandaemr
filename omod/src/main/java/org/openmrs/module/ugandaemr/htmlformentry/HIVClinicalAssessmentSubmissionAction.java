@@ -12,8 +12,11 @@ import org.openmrs.module.ugandaemr.api.UgandaEMRService;
 
 import java.util.*;
 
-import static org.openmrs.module.ugandaemr.UgandaEMRConstants.*;
-
+import static org.openmrs.module.ugandaemr.UgandaEMRConstants.GP_DSDM_CONCEPT_ID;
+import static org.openmrs.module.ugandaemr.UgandaEMRConstants.GP_DSDM_PROGRAM_UUID_NAME;
+import static org.openmrs.module.ugandaemr.UgandaEMRConstants.GP_DSDM_PROGRAM_UUID_NAME;
+import static org.openmrs.module.ugandaemr.UgandaEMRConstants.CONCEPT_ID_NEXT_APPOINTMENT;
+import static org.openmrs.module.ugandaemr.UgandaEMRConstants.CONCEPT_ID_TRANSFERED_OUT;
 
 /**
  * Enrolls patients into DSDM programs
@@ -22,7 +25,7 @@ public class HIVClinicalAssessmentSubmissionAction implements CustomFormSubmissi
 
     @Override
     public void applyAction(FormEntrySession session) {
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
         Mode mode = session.getContext().getMode();
         if (!(mode.equals(Mode.ENTER) || mode.equals(Mode.EDIT))) {
             return;
@@ -37,10 +40,10 @@ public class HIVClinicalAssessmentSubmissionAction implements CustomFormSubmissi
             return;
         }
 
-        if (ugandaEMRPOCService.getPreviousQueue(session.getPatient(), session.getEncounter().getLocation(), PatientQueue.Status.PENDING) != null) {
-            ugandaEMRPOCService.processLabTestOrdersFromEncounterObs(session, true);
+        if (ugandaEMRService.getPreviousQueue(session.getPatient(), session.getEncounter().getLocation(), PatientQueue.Status.PENDING) != null) {
+            ugandaEMRService.processLabTestOrdersFromEncounterObs(session, true);
 
-            ugandaEMRPOCService.processDrugOrdersFromEncounterObs(session, true);
+            ugandaEMRService.processDrugOrdersFromEncounterObs(session, true);
 
             completeClinicianQueue(session.getEncounter());
         }
@@ -248,10 +251,10 @@ public class HIVClinicalAssessmentSubmissionAction implements CustomFormSubmissi
     }
 
     private void completeClinicianQueue(Encounter encounter) {
-        UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
         for (Obs obs : encounter.getAllObs(false)) {
             if (obs.getConcept().getConceptId().equals(CONCEPT_ID_NEXT_APPOINTMENT) || obs.getConcept().getConceptId().equals(CONCEPT_ID_TRANSFERED_OUT)) {
-                ugandaEMRPOCService.completePreviousQueue(obs.getEncounter().getPatient(), encounter.getLocation(), PatientQueue.Status.PENDING);
+                ugandaEMRService.completePreviousQueue(obs.getEncounter().getPatient(), encounter.getLocation(), PatientQueue.Status.PENDING);
                 Context.getVisitService().endVisit(encounter.getVisit(), new Date());
             }
 
