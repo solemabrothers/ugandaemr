@@ -30,7 +30,7 @@ public class TBSummaryPageSubmissionAction implements CustomFormSubmissionAction
             return;
         }
         ProgramWorkflowService programWorkflowService = Context.getProgramWorkflowService();
-        UgandaEMRService ugandaEMRPOCService= Context.getService(UgandaEMRService.class);
+        UgandaEMRService ugandaEMRService= Context.getService(UgandaEMRService.class);
         List<PatientProgram> patientProgramList = programWorkflowService.getPatientPrograms(session.getPatient(), programWorkflowService.getProgramByUuid("160541AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"), null, null, null, null, false);
         PatientProgram currentPatientProgram = null;
 
@@ -42,10 +42,10 @@ public class TBSummaryPageSubmissionAction implements CustomFormSubmissionAction
         }
 
         if (currentPatientProgram != null) {
-            PatientProgramAttribute currentRegimen=ugandaEMRPOCService.generatePatientProgramAttributeFromObservation(currentPatientProgram, session.getEncounter().getAllObs(), TB_REGIMEN_CONCEPT_ID, TB_REGIMEN_PROGRAM_ATTRIBUTE_TYPE_UUID);
-            PatientProgramAttribute heathUnitTBNo=ugandaEMRPOCService.generatePatientProgramAttributeFromObservation(currentPatientProgram, session.getEncounter().getAllObs(), TB_HEALTH_UNIT_NUMBER_CONCEPT_ID, TB_HEALTH_UNIT_NUMBER_PROGRAM_ATTRIBUTE_TYPE_UUID);
-            PatientProgramAttribute districtTBNo=ugandaEMRPOCService.generatePatientProgramAttributeFromObservation(currentPatientProgram, session.getEncounter().getAllObs(), TB_DISTRICT_NUMBER_CONCEPT_ID, TB_DISTRICT_NUMBER_PROGRAM_ATTRIBUTE_TYPE_UUID);
-            PatientProgramAttribute drTBNo=ugandaEMRPOCService.generatePatientProgramAttributeFromObservation(currentPatientProgram, session.getEncounter().getAllObs(), DR_TB_NUMBER_PROGRAM_CONCEPT_ID, DR_TB_NUMBER_PROGRAM_ATTRIBUTE_TYPE_UUID);
+            PatientProgramAttribute currentRegimen=ugandaEMRService.generatePatientProgramAttributeFromObservation(currentPatientProgram, session.getEncounter().getAllObs(), TB_REGIMEN_CONCEPT_ID, TB_REGIMEN_PROGRAM_ATTRIBUTE_TYPE_UUID);
+            PatientProgramAttribute heathUnitTBNo=ugandaEMRService.generatePatientProgramAttributeFromObservation(currentPatientProgram, session.getEncounter().getAllObs(), TB_HEALTH_UNIT_NUMBER_CONCEPT_ID, TB_HEALTH_UNIT_NUMBER_PROGRAM_ATTRIBUTE_TYPE_UUID);
+            PatientProgramAttribute districtTBNo=ugandaEMRService.generatePatientProgramAttributeFromObservation(currentPatientProgram, session.getEncounter().getAllObs(), TB_DISTRICT_NUMBER_CONCEPT_ID, TB_DISTRICT_NUMBER_PROGRAM_ATTRIBUTE_TYPE_UUID);
+            PatientProgramAttribute drTBNo=ugandaEMRService.generatePatientProgramAttributeFromObservation(currentPatientProgram, session.getEncounter().getAllObs(), DR_TB_NUMBER_PROGRAM_CONCEPT_ID, DR_TB_NUMBER_PROGRAM_ATTRIBUTE_TYPE_UUID);
 
             if (currentRegimen!=null)
             currentPatientProgram.setAttribute(currentRegimen);
