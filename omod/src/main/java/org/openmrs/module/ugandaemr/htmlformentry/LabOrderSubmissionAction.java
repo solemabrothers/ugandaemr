@@ -14,7 +14,7 @@ public class LabOrderSubmissionAction implements CustomFormSubmissionAction {
 
 	@Override
 	public void applyAction(FormEntrySession session) {
-		UgandaEMRService ugandaEMRPOCService = Context.getService(UgandaEMRService.class);
+		UgandaEMRService ugandaEMRService = Context.getService(UgandaEMRService.class);
 		EncounterService encounterService = Context.getEncounterService();
 		Mode mode = session.getContext().getMode();
 		if (!(mode.equals(Mode.ENTER) || mode.equals(Mode.EDIT))) {
@@ -24,6 +24,6 @@ public class LabOrderSubmissionAction implements CustomFormSubmissionAction {
 		if (mode.equals(Mode.EDIT)) {
 
 		}
-		ugandaEMRPOCService.processLabTestOrdersFromEncounterObs(session, true);
+		ugandaEMRService.processLabTestOrdersFromEncounterObs(session, true);
 	}
 }
