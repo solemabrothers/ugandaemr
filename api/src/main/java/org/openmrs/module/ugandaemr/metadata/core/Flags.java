@@ -54,11 +54,15 @@ public class Flags {
         @Override
         public String criteria() {
             return "SELECT p.patient_id, DATE_FORMAT(DATE_ADD(o.value_datetime, INTERVAL 6 MONTH), '%d.%b.%Y') FROM patient p\n" +
-                    "                     INNER JOIN obs o ON p.patient_id = o.person_id\n" +
-                    "                     INNER JOIN person pp ON pp.person_id = p.patient_id WHERE pp.dead = FALSE \n" +
-                    "                     AND  o.concept_id = 99161 AND o.voided = FALSE AND CURRENT_DATE() >= DATE_ADD(o.value_datetime, INTERVAL 6 MONTH)\n" +
-                    "                     AND o.person_id NOT IN (SELECT oo.person_id FROM obs oo WHERE oo.concept_id = 1305 AND oo.voided = FALSE)\n" +
-                    "                     AND p.patient_id NOT IN (SELECT oo.person_id FROM obs oo WHERE oo.concept_id = 90306 AND oo.voided = FALSE)";
+                    "INNER JOIN obs o ON p.patient_id = o.person_id\n" +
+                    "INNER JOIN person pp ON pp.person_id = p.patient_id WHERE pp.dead = FALSE \n" +
+                    "AND  o.concept_id = 99161 AND o.voided = FALSE AND CURRENT_DATE() >= DATE_ADD(o.value_datetime, INTERVAL 6 MONTH)\n" +
+                    " AND o.person_id NOT IN (SELECT oo.person_id FROM obs oo WHERE oo.concept_id = 1305 AND oo.voided = FALSE)\n" +
+                    "  AND p.patient_id NOT IN (SELECT oo.person_id FROM obs oo WHERE oo.concept_id = 90306 AND oo.voided = FALSE)\n" +
+                    "  AND p.patient_id NOT IN (SELECT p.patient_id  from patient p  inner join obs o on p.patient_id=o.person_id\n" +
+                    " INNER JOIN encounter e on o.encounter_id = e.encounter_id\n" +
+                    "INNER JOIN person pp ON pp.person_id = p.patient_id WHERE pp.dead = FALSE\n" +
+                    "  AND  o.concept_id=1271 AND o.value_coded=165412)";
         }
 
         @Override
@@ -89,6 +93,46 @@ public class Flags {
         @Override
         public String uuid() {
             return "6ce583d1-a4d7-41a6-902f-9a5debea1ec7";
+        }
+    };
+
+    public static FlagDescriptor BLED_FOR_VIRAL_LOAD = new FlagDescriptor() {
+        @Override
+        public String criteria() {
+            return "SELECT p.patient_id,DATE_FORMAT(e.encounter_datetime,'%d.%b.%Y')  from patient p  inner join obs o on p.patient_id=o.person_id\n" +
+                    "INNER JOIN encounter e on o.encounter_id = e.encounter_id\n" +
+                    "INNER JOIN person pp ON pp.person_id = p.patient_id WHERE pp.dead = FALSE\n" +
+                    "AND  o.concept_id=1271 AND o.value_coded=165412";
+        }
+
+        @Override
+        public String message() {
+            return "Patient was bled for viral load on ${1} awaiting results";
+        }
+
+        @Override
+        public String priority() {
+            return Priorites.GREEN.uuid();
+        }
+
+        @Override
+        public List<String> tags() {
+            return Arrays.asList(Tags.PATIENT_STATUS.uuid());
+        }
+
+        @Override
+        public String name() {
+            return "Bled for Viral load";
+        }
+
+        @Override
+        public String description() {
+            return "Patients who have been bled for viral load and awaiting results";
+        }
+
+        @Override
+        public String uuid() {
+            return "424cda04-c1ec-4c57-99ca-6c443d48fe6b";
         }
     };
 
