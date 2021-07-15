@@ -620,7 +620,7 @@
 		<pluginRepository>
 			<id>openmrs-repo</id>
 			<name>OpenMRS Nexus Repository</name>
-			<url>hhttps://mavenrepo.openmrs.org/public</url>
+			<url>https://mavenrepo.openmrs.org/public</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
