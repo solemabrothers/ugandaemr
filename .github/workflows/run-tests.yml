@@ -1,4 +1,4 @@
-name: Verify PRs
+name: Run Tests
 
 on:
   pull_request:
